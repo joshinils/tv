@@ -1,4 +1,25 @@
 from flask import Flask
+from flask import render_template
+import xml.etree.ElementTree as ET
+
+
+tree = ET.parse('tv.xml')
+root = tree.getroot()
+
+
+def printNode(root, indent=0):
+    for child in root:
+        print(' ' * indent + "child.tag   :", child.tag)
+        print(' ' * indent + "child.attrib:", child.attrib)
+        print(' ' * indent + "child.text  :", child.text)
+        print(' ' * indent + "child.tail  :", child.tail)
+        printNode(child, indent + 4)
+
+
+# printNode(root)
+# exit()
+
+
 app = Flask(__name__)
 
 # sudo apt install xmltv -y
@@ -8,7 +29,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Index Page'
+    return render_template('hello.html', a_variable="foo", root=root)
 
 
 @app.route('/hello')

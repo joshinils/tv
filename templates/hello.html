@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Webpage</title>
+</head>
+
+<body>
+    <ul id="navigation">
+        {% for child in root %}
+        <li>
+            <div>
+                {{ child.tag }}
+            </div>
+            <div>
+                {{ child.attrib }}
+            </div>
+            <div>
+                {{ child.text }}
+            </div>
+            <div>
+                {{ child.tail }}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h1>My Webpage</h1>
+    {{ a_variable }} {# a comment #}
+</body>
+
+</html>
