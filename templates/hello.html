@@ -2,31 +2,33 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>My Webpage</title>
 </head>
 
 <body>
-    <ul id="navigation">
-        {% for child in root %}
-        <li>
-            <div>
-                {{ child.tag }}
+    {% for id, channel in channelProg.items() %}
+    <div class="channelDay">
+        <div class="channelName">
+            {{ id }}
+        </div>
+        {% for prog in channel %}
+        <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}">
+            <div class="channel">
+                {{ prog.channel.name }}
             </div>
-            <div>
-                {{ child.attrib }}
+            <div class="start">
+                {{ prog.startTime() }}
             </div>
-            <div>
-                {{ child.text }}
+            {% for kvPair in prog.data.items() %}
+            <div class="{{ kvPair[0] }}" lang="de">
+                {% if kvPair[0] == "category" %}&#11208;{% endif %}{{ kvPair[1] }}
             </div>
-            <div>
-                {{ child.tail }}
-            </div>
-        </li>
+            {% endfor %}
+        </div>
         {% endfor %}
-    </ul>
-
-    <h1>My Webpage</h1>
-    {{ a_variable }} {# a comment #}
+    </div>
+    {% endfor %}
 </body>
 
 </html>

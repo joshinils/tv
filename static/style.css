@@ -1,0 +1,98 @@
+body {
+    color: #fff;
+    background-color: #222;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.channelDay {
+    width: 250px;
+    justify-content: space-between;
+    text-align: justify;
+    word-wrap: break-word;
+    hyphens: auto;
+    /**/
+    float: left;
+    margin: 0 10px;
+}
+
+.channelName {
+    background-color: #318196;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.programme.prominent {
+    margin-top: 10px;
+}
+
+.programme.nonprominent {
+    display: inline;
+}
+
+.prominent {
+    /* https://stackoverflow.com/questions/17158253/indent-starting-from-the-second-line-of-a-paragraph-with-css */
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+}
+
+.nonprominent .channel {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.channel {
+    display: inline;
+}
+
+.start {
+    display: inline;
+    font-weight: bold;
+}
+
+.nonprominent .title {
+    font-weight: normal;
+    display: inline;
+}
+
+.prominent .title {
+    font-weight: bold;
+    display: inline;
+}
+
+.nonprominent .sub-title {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.sub-title {
+    font-size: normal;
+    display: inline;
+}
+
+.nonprominent .desc {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.desc {
+    font-size: italic;
+    display: inline;
+}
+
+.nonprominent .category {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.category {
+    width: 0;
+    height: 0;
+    display: none;
+    display: inline;
+}
