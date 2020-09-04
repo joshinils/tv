@@ -1,18 +1,19 @@
+from typing import List
+from .programme import Programme
+from .channelName import ChannelName
+
+
 class Channel:
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: channelName) -> None:
         self.name = name
+        self.programs = []
 
+    @classmethod
+    def addPrograms(self, programs: List[Programme]):
+        for prog in programs:
+            self.addProgram(prog)
 
-class _ChannelManager:
-    def __init__(self):
-        self.channels = {}
-
-    def get_or_create(self, name: str):
-        if name in self.channels.keys():
-            return self.channels[name]
-        new_channel = Channel(name)
-        self.channels[name] = new_channel
-        return new_channel
-
-
-ChannelManager = _ChannelManager()
+    @classmethod
+    def addProgram(self, prog: Programme):
+        if prog.channelName.id == self.name.id:
+            self.programs.append(prog)

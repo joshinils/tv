@@ -4,3 +4,5 @@ __pycache__
 .idea/
 # virtualenv for development
 .venv/
+
+.vscode

@@ -1,25 +1,24 @@
 from datetime import datetime
 from typing import Dict
-
-from .channel import Channel, ChannelManager
+from .channelName import ChannelName
 
 
 class Programme:
-    def __init__(self, channel: Channel, start: datetime, stop: datetime):
-        self.channel: Channel = channel
-        self.start: datetime = start
-        self.stop: datetime = stop
-        self.data: Dict = {}
-        self.is_prominent = False
-
-    @staticmethod
-    def from_dict(input_dict: Dict) -> 'Programme':
+    def __init__(self, channelName: ChannelName, start: datetime, stop: datetime):
+        self.channelName: ChannelName = channelName
         date_format: str = "%Y%m%d%H%M%S %z"
-        return Programme(
-            ChannelManager.get_or_create(input_dict['channel']),
-            datetime.strptime(input_dict['start'], date_format),
-            datetime.strptime(input_dict['stop'], date_format)
-        )
+        self.start = datetime.strptime(start, date_format)
+        self.stop = datetime.strptime(stop, date_format)
+        self.data: Dict = {}
+        self.prominent = False
+        if self.start.hour > 20 and self.start.minute > 14:
+            self.prominent = True
+        if self.start.hour > 21:
+            self.prominent = True
+
+    # @classmethod
+    def startTime(self) -> str:
+        return self.start.strftime("%H:%M")
 
     def __repr__(self):
         return f'{self.channel.name}: {self.start} -> {self.stop}'
