@@ -1,4 +1,4 @@
 class ChannelName:
-    __init__(self, name: str, id: str):
+    def __init__(self, name: str, id: str):
         self.name = name
         self.id = id

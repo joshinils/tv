@@ -4,7 +4,7 @@ from .channelName import ChannelName
 
 
 class Channel:
-    def __init__(self, name: channelName) -> None:
+    def __init__(self, name: ChannelName) -> None:
         self.name = name
         self.programs = []
 

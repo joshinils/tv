@@ -15,7 +15,7 @@ body {
     margin: 0 10px;
 }
 
-.channelName {
+.channelHead {
     background-color: #318196;
     font-weight: bold;
     font-size: x-large;
@@ -37,13 +37,13 @@ body {
     text-indent: -1.5em;
 }
 
-.nonprominent .channel {
+.nonprominent .channelName {
     width: 0;
     height: 0;
     display: none;
 }
 
-.channel {
+.channelName {
     display: inline;
 }
 

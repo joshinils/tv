@@ -3,28 +3,34 @@
 
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>My Webpage</title>
+    <title>Guide</title>
 </head>
 
 <body>
-    {% for id, channel in channelProg.items() %}
+    {% for day in guide.days %}
     <div class="channelDay">
-        <div class="channelName">
-            {{ id }}
-        </div>
-        {% for prog in channel %}
-        <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}">
-            <div class="channel">
-                {{ prog.channel.name }}
+        {% for channel in day.channels %}
+        <div class="channel">
+
+            <div class="channelHead">
+                {{ channel.name }}
             </div>
-            <div class="start">
-                {{ prog.startTime() }}
-            </div>
-            {% for kvPair in prog.data.items() %}
-            <div class="{{ kvPair[0] }}" lang="de">
-                {% if kvPair[0] == "category" %}&#11208;{% endif %}{{ kvPair[1] }}
+            {% for prog in channel %}
+            <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}">
+                <div class="channelName">
+                    {{ prog.channel.name }}
+                </div>
+                <div class="start">
+                    {{ prog.startTime() }}
+                </div>
+                {% for kvPair in prog.data.items() %}
+                <div class="{{ kvPair[0] }}" lang="de">
+                    {% if kvPair[0] == "category" %}&#11208;{% endif %}{{ kvPair[1] }}
+                </div>
+                {% endfor %}
             </div>
             {% endfor %}
+
         </div>
         {% endfor %}
     </div>

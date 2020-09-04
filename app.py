@@ -3,7 +3,8 @@ from flask import render_template
 import xml.etree.ElementTree as ET
 
 from models.programme import Programme
-from models.channel import Channel
+from models.channelName import ChannelName
+from models.tvGuide import TvGuide
 
 from datetime import datetime
 
@@ -14,24 +15,17 @@ root = tree.getroot()
 # printNode(root)
 # exit()
 
-progs = []
+guide = TvGuide()
 
 for child in root:
     if child.tag != "programme":
         continue
-    p = Programme(Channel(
+    p = Programme(ChannelName(
         child.attrib["channel"], child.attrib["channel"]), child.attrib["start"], child.attrib["stop"])
     for c in child:
         p.data[c.tag] = c.text.replace(" - ", " – ").replace("  ", " ")
-    progs.append(p)
+    guide.addProgram(p)
     # print(p.data)
-
-channelProg = {}
-for prog in progs:
-    channelProg.setdefault(prog.channel.id, []).append(prog)
-
-for channel in channelProg:
-    print(channel)
 
 app = Flask(__name__)
 
@@ -42,7 +36,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('hello.html', channelProg=channelProg)
+    return render_template('hello.html', guide=guide)
 
 
 @app.route('/hello')
