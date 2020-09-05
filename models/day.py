@@ -15,4 +15,17 @@ class Day:
 
     def addProgram(self, prog: Programme):
         self.channels.setdefault(prog.channelName.id, Channel(prog.channelName))
-        self.channels[prog.channelName.id].addProgramm(prog)
+        self.channels[prog.channelName.id].addProgram(prog)
+
+    def getDate(self) -> str:
+        return str(self.date)
+
+    def getWochentag(self) -> str:
+        weekdays = {0: "Montag",
+                    1: "Dienstag",
+                    2: "Mittwoch",
+                    3: "Donnerstag",
+                    4: "Freitag",
+                    5: "Samstag",
+                    6: "Sonntag"}
+        return weekdays[self.date.weekday()]

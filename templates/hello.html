@@ -7,18 +7,25 @@
 </head>
 
 <body>
-    {% for day in guide.days %}
-    <div class="channelDay">
-        {% for channel in day.channels %}
-        <div class="channel">
-
-            <div class="channelHead">
-                {{ channel.name }}
+    {% for day in guide.days.items() %}
+    <table class="channelDay">
+        <div class="date">
+            <div class="wochentag">
+                {{ day[1].getWochentag() }}
             </div>
-            {% for prog in channel %}
+            <div class="datum">
+                {{ day[1].getDate() }}
+            </div>
+        </div>
+        {% for channel in day[1].channels.items() %}
+        <div class="channel">
+            <div class="channelHead">
+                {{ channel[1].name.name }}
+            </div>
+            {% for prog in channel[1].programs %}
             <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}">
                 <div class="channelName">
-                    {{ prog.channel.name }}
+                    {{ prog.channelName.name }}
                 </div>
                 <div class="start">
                     {{ prog.startTime() }}
@@ -33,7 +40,7 @@
 
         </div>
         {% endfor %}
-    </div>
+    </table>
     {% endfor %}
 </body>
 

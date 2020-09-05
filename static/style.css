@@ -5,6 +5,29 @@ body {
 }
 
 .channelDay {
+    width: 100%;
+}
+
+.date {
+    font-weight: bold;
+    font-size: xx-large;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.wochentag {
+    font-weight: bold;
+    font-size: xx-large;
+    display: inline;
+}
+
+.datum {
+    font-weight: bold;
+    font-size: large;
+    display: inline;
+}
+
+.channel {
     width: 250px;
     justify-content: space-between;
     text-align: justify;
@@ -44,7 +67,9 @@ body {
 }
 
 .channelName {
-    display: inline;
+    width: 0;
+    height: 0;
+    display: none;
 }
 
 .start {
