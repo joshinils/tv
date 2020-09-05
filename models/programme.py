@@ -20,6 +20,9 @@ class Programme:
     def startTime(self) -> str:
         return self.start.strftime("%H:%M")
 
+    def catgy(self) -> str:
+        return self.data["category"]
+
     def __repr__(self):
         return f'{self.channel.name}: {self.start} -> {self.stop}'
 

@@ -25,7 +25,7 @@
                         {{ channel[1].name.name }}
                     </div>
                     {% for prog in channel[1].programs %}
-                    <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}{% if prog.onPrevDay %} onPrevDay{% else %} onDay{% endif %}">
+                    <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}{% if prog.onPrevDay %} onPrevDay{% else %} onDay{% endif %} {{ prog.catgy() }}">
                         <div class="start">
                             {{ prog.startTime() }}
                         </div>
