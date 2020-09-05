@@ -30,7 +30,7 @@ body {
 }
 
 .channel {
-    max-width: 300px;
+    max-width: 350px;
     justify-content: space-between;
     text-align: justify;
     word-wrap: break-word;
@@ -50,7 +50,7 @@ body {
 }
 
 .onPrevDay {
-    background-color: #ddf;
+    background-color: #ededff;
 }
 
 .onDay {
@@ -90,16 +90,23 @@ body {
 .start {
     display: inline;
     font-weight: bold;
+    font-size: 95%;
+}
+
+.prominent .start {
+    font-size: 130%;
 }
 
 .nonprominent .title {
-    font-weight: normal;
+    font-size: 95%;
+    font-weight: normal !important;
     display: inline;
 }
 
 .prominent .title {
-    font-weight: bold;
     display: inline;
+    font-size: 130%;
+    font-weight: normal;
 }
 
 .prominent .sub-title {

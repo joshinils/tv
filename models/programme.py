@@ -11,9 +11,9 @@ class Programme:
         self.stop = datetime.strptime(stop, date_format)
         self.data: Dict = {}
         self.prominent = False
-        if self.start.hour > 20 and self.start.minute > 14:
+        if self.start.hour >= 20 and self.start.minute >= 1:
             self.prominent = True
-        if self.start.hour > 21:
+        if self.start.hour >= 21:
             self.prominent = True
         self.onPrevDay = False
 
