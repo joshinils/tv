@@ -52,7 +52,7 @@ template = templateEnv.get_template(TEMPLATE_FILE)
 
 
 def url_for(where, filename):
-    return "/" + where + "/" + filename
+    return filename
 
 
 guideHtmlString = template.render(guide=guide, url_for=url_for)
