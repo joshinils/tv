@@ -8,6 +8,13 @@ from models.tvGuide import TvGuide
 
 from datetime import datetime
 
+import subprocess
+
+# sudo apt install xmltv -y
+# cd to folder where this file exists
+subprocess.call("tv_grab_eu_xmltvse --config-file .xmltv/tv_grab_eu_xmltvse.conf --output tv.xml", shell=True)
+
+
 tree = ET.parse('tv.xml')
 root = tree.getroot()
 
@@ -36,11 +43,6 @@ for child in root:
     # print(p.data)
 
 app = Flask(__name__)
-
-
-# sudo apt install xmltv -y
-# cd to folder where this file exists
-# tv_grab_eu_xmltvse --config-file .xmltv/tv_grab_eu_xmltvse.conf --output tv.xml
 
 
 @app.route('/')

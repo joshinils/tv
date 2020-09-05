@@ -7,9 +7,9 @@
 </head>
 
 <body>
-    {% for day in guide.days.items() %}
-    <table class="channelDay">
-        <tr>
+    <table>
+        {% for day in guide.days.items() %}
+        <tr class="channelDay">
             <td>
                 <div class="date">
                     <div class="wochentag">
@@ -40,8 +40,8 @@
                 {% endfor %}
             </td>
         </tr>
+        {% endfor %}
     </table>
-    {% endfor %}
 </body>
 
 </html>
