@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 import xml.etree.ElementTree as ET
-
+import jinja2
 from models.programme import Programme
 from models.channelName import ChannelName
 from models.tvGuide import TvGuide
@@ -43,6 +43,23 @@ for child in root:
     # print(p.data)
 
 app = Flask(__name__)
+
+
+templateLoader = jinja2.FileSystemLoader(searchpath="./templates/")
+templateEnv = jinja2.Environment(loader=templateLoader)
+TEMPLATE_FILE = "hello.html"
+template = templateEnv.get_template(TEMPLATE_FILE)
+
+
+def url_for(where, filename):
+    return "/" + where + "/" + filename
+
+
+guideHtmlString = template.render(guide=guide, url_for=url_for)
+
+f = open("guide.html", "w")
+f.write(guideHtmlString)
+f.close()
 
 
 @app.route('/')

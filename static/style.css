@@ -37,7 +37,7 @@ body {
     hyphens: auto;
     /**/
     float: left;
-    margin: 5px 10px 0px 10px;
+    padding: 5px 10px 0px 10px;
 }
 
 .channelHead {
@@ -58,7 +58,8 @@ body {
 }
 
 .programme.prominent {
-    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .programme.nonprominent {
