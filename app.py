@@ -5,6 +5,7 @@ import jinja2
 from models.programme import Programme
 from models.channelName import ChannelName
 from models.tvGuide import TvGuide
+import codecs
 
 from datetime import datetime
 
@@ -57,7 +58,7 @@ def url_for(where, filename):
 
 guideHtmlString = template.render(guide=guide, url_for=url_for)
 
-f = open("guide.html", "w")
+f = codecs.open("guide.html", "w", "utf-8")
 f.write(guideHtmlString)
 f.close()
 
