@@ -1,6 +1,6 @@
 from .channel import Channel
 from typing import List
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from .programme import Programme
 
 
@@ -19,6 +19,10 @@ class Day:
 
     def getDate(self) -> str:
         return str(self.date)
+
+    def isToday(self) -> bool:
+        LOCAL_TIMEZONE = datetime.now(timezone(timedelta(0))).astimezone().tzinfo
+        return self.date == datetime.now(LOCAL_TIMEZONE).date()
 
     def getWochentag(self) -> str:
         weekdays = {0: "Montag",

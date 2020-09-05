@@ -11,7 +11,7 @@
         {% for day in guide.days.items() %}
         <tr class="channelDay">
             <td>
-                <div class="date">
+                <div class="date{% if day[1].isToday() %} nowRunning{% endif %}">
                     <div class="wochentag">
                         {{ day[1].getWochentag() }}
                     </div>
@@ -25,7 +25,7 @@
                         {{ channel[1].name.name }}
                     </div>
                     {% for prog in channel[1].programs %}
-                    <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}{% if prog.onPrevDay %} onPrevDay{% else %} onDay{% endif %} {{ prog.catgy() }}">
+                    <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}{% if prog.onPrevDay %} onPrevDay{% else %} onDay{% endif %}{% if prog.nowRunning %} nowRunning{% endif %} {{ prog.catgy() }}">
                         <div class="start">
                             {{ prog.startTime() }}
                         </div>
