@@ -58,7 +58,7 @@ def url_for(where, filename):
 
 guideHtmlString = template.render(guide=guide, url_for=url_for)
 
-f = codecs.open("guide.html", "w", "utf-8")
+f = codecs.open("guide.html", "w", "utf-8-sig")
 f.write(guideHtmlString)
 f.close()
 
