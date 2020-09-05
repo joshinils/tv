@@ -15,6 +15,7 @@ class Programme:
             self.prominent = True
         if self.start.hour > 21:
             self.prominent = True
+        self.onPrevDay = False
 
     def startTime(self) -> str:
         return self.start.strftime("%H:%M")

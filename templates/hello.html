@@ -9,37 +9,37 @@
 <body>
     {% for day in guide.days.items() %}
     <table class="channelDay">
-        <div class="date">
-            <div class="wochentag">
-                {{ day[1].getWochentag() }}
-            </div>
-            <div class="datum">
-                {{ day[1].getDate() }}
-            </div>
-        </div>
-        {% for channel in day[1].channels.items() %}
-        <div class="channel">
-            <div class="channelHead">
-                {{ channel[1].name.name }}
-            </div>
-            {% for prog in channel[1].programs %}
-            <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}">
-                <div class="channelName">
-                    {{ prog.channelName.name }}
+        <tr>
+            <td>
+                <div class="date">
+                    <div class="wochentag">
+                        {{ day[1].getWochentag() }}
+                    </div>
+                    <div class="datum">
+                        {{ day[1].getDate() }}
+                    </div>
                 </div>
-                <div class="start">
-                    {{ prog.startTime() }}
-                </div>
-                {% for kvPair in prog.data.items() %}
-                <div class="{{ kvPair[0] }}" lang="de">
-                    {% if kvPair[0] == "category" %}&#11208;{% endif %}{{ kvPair[1] }}
+                {% for channel in day[1].channels.items() %}
+                <div class="channel">
+                    <div class="channelHead {{ channel[1].name.id }}">
+                        {{ channel[1].name.name }}
+                    </div>
+                    {% for prog in channel[1].programs %}
+                    <div class="programme{% if prog.prominent %} prominent{% else %} nonprominent{% endif %}{% if prog.onPrevDay %} onPrevDay{% else %} onDay{% endif %}">
+                        <div class="start">
+                            {{ prog.startTime() }}
+                        </div>
+                        {% for kvPair in prog.data.items() %}
+                        <div class="{{ kvPair[0] }}" lang="de">
+                            {% if kvPair[0] == "category" %}&#11208;{% endif %}{{ kvPair[1] }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
                 </div>
                 {% endfor %}
-            </div>
-            {% endfor %}
-
-        </div>
-        {% endfor %}
+            </td>
+        </tr>
     </table>
     {% endfor %}
 </body>

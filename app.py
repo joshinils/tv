@@ -17,11 +17,19 @@ root = tree.getroot()
 
 guide = TvGuide()
 
+channelName_Id = {}
+
+for child in root:
+    if child.tag != "channel":
+        continue
+    channelName_Id[child.attrib["id"]] = child.getchildren()[0].text
+
+
 for child in root:
     if child.tag != "programme":
         continue
     p = Programme(ChannelName(
-        child.attrib["channel"], child.attrib["channel"]), child.attrib["start"], child.attrib["stop"])
+        channelName_Id[child.attrib["channel"]], child.attrib["channel"]), child.attrib["start"], child.attrib["stop"])
     for c in child:
         p.data[c.tag] = c.text.replace(" - ", " – ").replace("  ", " ")
     guide.addProgram(p)
