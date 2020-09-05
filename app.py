@@ -12,7 +12,7 @@ import subprocess
 
 # sudo apt install xmltv -y
 # cd to folder where this file exists
-subprocess.call("sudo tv_grab_eu_xmltvse --config-file .xmltv/tv_grab_eu_xmltvse.conf --output tv.xml", shell=True)
+#subprocess.call("sudo tv_grab_eu_xmltvse --config-file .xmltv/tv_grab_eu_xmltvse.conf --output tv.xml", shell=True)
 
 
 tree = ET.parse('tv.xml')
