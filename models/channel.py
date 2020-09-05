@@ -8,12 +8,10 @@ class Channel:
         self.name = name
         self.programs = []
 
-    @classmethod
     def addPrograms(self, programs: List[Programme]):
         for prog in programs:
             self.addProgram(prog)
 
-    @classmethod
     def addProgram(self, prog: Programme):
         if prog.channelName.id == self.name.id:
             self.programs.append(prog)

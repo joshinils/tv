@@ -7,11 +7,8 @@ from collections import defaultdict
 
 class TvGuide:
     def __init__(self):
-        self.days = defaultdict(list)  # datetime.date: [Channel]
+        self.days = defaultdict(Day)  # datetime.date: Day
 
-    @classmethod
     def addProgram(self, prog: Programme) -> None:
-        self.days.setdefault(prog.start.date(), {})
-        self.days[prog.start.date()].setdefault(
-            prog.channelName.id, Channel(prog.channelName.name))
-        self.days[prog.start.date()][prog.channelName.id].addProgram(prog)
+        self.days.setdefault(prog.start.date(), Day(prog.start.date()))
+        self.days[prog.start.date()].addProgram(prog)

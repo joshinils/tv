@@ -16,7 +16,6 @@ class Programme:
         if self.start.hour > 21:
             self.prominent = True
 
-    # @classmethod
     def startTime(self) -> str:
         return self.start.strftime("%H:%M")
 
