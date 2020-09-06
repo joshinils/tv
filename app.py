@@ -39,7 +39,7 @@ for child in root:
     p = Programme(ChannelName(
         channelName_Id[child.attrib["channel"]], child.attrib["channel"]), child.attrib["start"], child.attrib["stop"])
     for c in child:
-        p.data[c.tag] = c.text.replace(" - ", " – ").replace("  ", " ")
+        p.data[c.tag] = c.text.replace(" - ", " — ").replace("  ", " ")
     guide.addProgram(p)
     # print(p.data)
 

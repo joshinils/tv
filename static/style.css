@@ -2,7 +2,7 @@ body {
     color: #000;
     background-color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: 100000px;
+    width: 10000px;
 }
 
 .channelDay {
@@ -30,7 +30,7 @@ body {
 }
 
 .channel {
-    max-width: 350px;
+    max-width: 410px;
     justify-content: space-between;
     text-align: justify;
     word-wrap: break-word;
