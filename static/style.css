@@ -3,6 +3,7 @@ body {
     background-color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 10000px;
+    margin: 0px;
 }
 
 .channelDay {
@@ -12,9 +13,7 @@ body {
 .date {
     font-weight: bold;
     font-size: xx-large;
-    margin-top: 50px;
-    margin-bottom: 5px;
-    margin-left: 5px;
+    padding: 50px 5px 10px 5px;
 }
 
 .wochentag {
@@ -37,7 +36,7 @@ body {
     hyphens: auto;
     /**/
     float: left;
-    padding: 5px 10px 0px 10px;
+    padding: 0px 10px;
 }
 
 .channelHead {
@@ -114,14 +113,19 @@ body {
     font-weight: normal;
 }
 
-.prominent .sub-title {
+.prominent .sub-title,
+.nowRunning .sub-title {
     font-size: normal;
     font-style: italic;
     display: inline;
 }
 
+.nowRunning .desc {
+    display: inline;
+    font-size: 75%;
+}
+
 .prominent .desc {
-    font-size: italic;
     display: inline;
 }
 
